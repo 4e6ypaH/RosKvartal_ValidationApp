@@ -15,6 +15,13 @@ namespace ValidationApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        public JsonResult CheckName(string name)
+        {
+            var result = !(name == "Название");
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Create()
         {
             return View();
@@ -28,6 +35,11 @@ namespace ValidationApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            return View();
+        }
+
+        public ActionResult Login()
+        {
             return View();
         }
 
