@@ -4,20 +4,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using ValidationApp.Annotations;
 
 namespace ValidationApp.Models
 {
+    [NotAllowed(ErrorMessage = "Недопустимая книга")]
     public class Book
     {       
             public int Id { get; set; }
             [Display(Name = "Название")]
             [Required(ErrorMessage = "Поле должно быть установлено")]
-            [StringLength(10, MinimumLength =3, ErrorMessage = "Недопустимая длина строки")]
-            [Remote("CheckName", "Home", ErrorMessage= "Некорректное название")]
+            //[StringLength(10, MinimumLength =3, ErrorMessage = "Недопустимая длина строки")]
+            //[Remote("CheckName", "Home", ErrorMessage= "Некорректное название")]
             public string Name { get; set; }
             [Display(Name = "Автор")]
             [Required]  
+            [ValidAuthor(new string[] { "Л. Толстой", "А. Пушкин", "ф. Достоевский", "И. Тургенев" }, ErrorMessage = "Недопустимый автор")]
             public string Author { get; set; }
             [Display(Name = "Год")]
             [Required]

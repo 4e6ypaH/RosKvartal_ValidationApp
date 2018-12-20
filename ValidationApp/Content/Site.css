@@ -29,7 +29,7 @@ textarea {
     text-decoration: underline;
 }
 
-input.input-validation-error {
+.input-validation-error {
     border: 1px solid #006699;
     background-color: silver;
 }

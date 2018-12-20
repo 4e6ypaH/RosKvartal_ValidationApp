@@ -29,10 +29,7 @@ namespace ValidationApp.Controllers
         [HttpPost]
         public ActionResult Create(Book book)
         {
-            if (book.Author == "Л. Толстой" && book.Year > 1910)
-            {
-                ModelState.AddModelError("", "Год не должен быть больше 1910");
-            }
+            
 
 
             //if (book.Year == 1980)
